@@ -2,12 +2,28 @@ import React from 'react';
 import Container from './components/Container/Container';
 import Image from 'next/image';
 import {
+  RiAdvertisementLine,
+  RiArrowRightUpLine,
+  RiBankLine,
+  RiBriefcaseLine,
+  RiCamera4Line,
+  RiDatabase2Line,
+  RiFileCodeLine,
+  RiGlassesLine,
   RiGraduationCapLine,
   RiGroupLine,
+  RiHeartPulseLine,
+  RiLightbulbAiLine,
+  RiMegaphoneLine,
+  RiMusicLine,
+  RiPenNibLine,
   RiSearch2Line,
+  RiSunCloudyLine,
   RiVideoOnLine,
 } from '@remixicon/react';
 import CourseSlider from './components/Slider/CourseSlider/CourseSlider';
+import Link from 'next/link';
+import Category from './components/Category/Category';
 
 const Home = () => {
   return (
@@ -125,6 +141,71 @@ const Home = () => {
           <CourseSlider></CourseSlider>
         </section>
       </Container>
+
+      {/* Most Popular Category */}
+      <section className="bg-[#E7E9EB] py-20 mt-20">
+        <Container className="px-4 lg:px-0">
+          <div>
+            <h2 className="text-4xl font-semibold">
+              Most <span className="text-[#3461FD]">Popular Category</span>
+            </h2>
+            <p className="text-gray-600 mt-2">
+              Various versions have evolved over the years, sometimes by
+              accident.
+            </p>
+          </div>
+
+          <section className="mt-12 grid gap-6 lg:grid-cols-4 md:grid-cols-3 grid-cols-2">
+            <Category category="Design" href="">
+              <RiPenNibLine size={28}></RiPenNibLine>
+            </Category>
+
+            <Category category="Development" href="">
+              <RiFileCodeLine size={28}></RiFileCodeLine>
+            </Category>
+
+            <Category category="Marketing" href="">
+              <RiMegaphoneLine size={28}></RiMegaphoneLine>
+            </Category>
+
+            <Category category="Business" href="">
+              <RiBriefcaseLine size={28}></RiBriefcaseLine>
+            </Category>
+
+            <Category category="Lifestyle" href="">
+              <RiSunCloudyLine size={28}></RiSunCloudyLine>
+            </Category>
+
+            <Category category="Photography" href="">
+              <RiCamera4Line size={28}></RiCamera4Line>
+            </Category>
+
+            <Category category="Music" href="">
+              <RiMusicLine size={28}></RiMusicLine>
+            </Category>
+
+            <Category category="Data Science" href="">
+              <RiDatabase2Line size={28}></RiDatabase2Line>
+            </Category>
+
+            <Category category="Personal Develop" href="">
+              <RiLightbulbAiLine size={28}></RiLightbulbAiLine>
+            </Category>
+
+            <Category category="Health & Fitness" href="">
+              <RiHeartPulseLine size={28}></RiHeartPulseLine>
+            </Category>
+
+            <Category category="Finance" href="">
+              <RiBankLine size={28}></RiBankLine>
+            </Category>
+
+            <Category category="Teaching" href="">
+              <RiGlassesLine size={28}></RiGlassesLine>
+            </Category>
+          </section>
+        </Container>
+      </section>
     </>
   );
 };
