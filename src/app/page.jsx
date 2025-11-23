@@ -1,7 +1,13 @@
 import React from 'react';
 import Container from './components/Container/Container';
 import Image from 'next/image';
-import { RiSearch2Line } from '@remixicon/react';
+import {
+  RiGraduationCapLine,
+  RiGroupLine,
+  RiSearch2Line,
+  RiVideoOnLine,
+} from '@remixicon/react';
+import Statistics from './components/Statistics/Statistics';
 
 const Home = () => {
   return (
@@ -19,7 +25,7 @@ const Home = () => {
             </h1>
             <p className="text-gray-300 lg:text-xl text-lg">
               Various versions have evolved over the years, sometimes by
-              accident,
+              accident.
             </p>
 
             <form className="mt-8 relative">
@@ -43,6 +49,63 @@ const Home = () => {
               height={738}
               priority
             ></Image>
+          </div>
+        </Container>
+      </section>
+
+      {/* Statistics Section */}
+      <section className="bg-gray-300">
+        <Container className="py-12 flex items-center justify-between lg:px-0 px-4 flex-wrap gap-10">
+          <div className="flex items-center gap-3">
+            <div
+              className={`text-white p-3 bg-gradient-to-b from-[#2AF9B1] to-[#20B486] rounded-full max-w-fit`}
+            >
+              <RiGraduationCapLine size={26}></RiGraduationCapLine>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold">300</h2>
+              <p className="text-base text-gray-600">Instructors</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div
+              className={`text-white p-3 bg-gradient-to-b from-[#A988F9] to-[#6D3AE9] rounded-full max-w-fit`}
+            >
+              <RiGroupLine size={26}></RiGroupLine>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold">20,000</h2>
+              <p className="text-base text-gray-600">Students</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div
+              className={`text-white p-3 bg-gradient-to-b from-[#FFA4AF] to-[#EE455A] rounded-full max-w-fit`}
+            >
+              <RiVideoOnLine size={26}></RiVideoOnLine>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold">10,000</h2>
+              <p className="text-base text-gray-600">Videos</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div
+              className={`text-white p-3 bg-gradient-to-b from-[#92DAF0] to-[#21C9FF] rounded-full max-w-fit`}
+            >
+              <RiVideoOnLine size={26}></RiVideoOnLine>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold">1,00,000</h2>
+              <p className="text-base text-gray-600">User's</p>
+            </div>
           </div>
         </Container>
       </section>
