@@ -7,7 +7,7 @@ import {
   RiSearch2Line,
   RiVideoOnLine,
 } from '@remixicon/react';
-import Statistics from './components/Statistics/Statistics';
+import CourseSlider from './components/Slider/CourseSlider/CourseSlider';
 
 const Home = () => {
   return (
@@ -109,6 +109,22 @@ const Home = () => {
           </div>
         </Container>
       </section>
+
+      {/* Popular Course Section */}
+      <Container className="px-4 lg:px-0 mt-20">
+        <div>
+          <h2 className="text-4xl font-semibold">
+            Most <span className="text-[#3461FD]">Popular Course</span>
+          </h2>
+          <p className="text-gray-600 mt-2">
+            Various versions have evolved over the years, sometimes by accident.
+          </p>
+        </div>
+
+        <section className="mt-12">
+          <CourseSlider></CourseSlider>
+        </section>
+      </Container>
     </>
   );
 };
