@@ -1,6 +1,6 @@
 import { Public_Sans } from 'next/font/google';
 import './globals.css';
-import Navbar from '@/app/Shared/Navbar';
+import Navbar from '@/app/pages/Shared/Navbar';
 
 const publicSans = Public_Sans({
   variable: '--font-public-sans',

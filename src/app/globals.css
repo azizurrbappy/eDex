@@ -7,3 +7,16 @@
 .check {
   @apply border border-red-500;
 }
+
+/* Navbar Links Style */
+.active {
+  @apply text-[#FFC27A] no-underline;
+}
+
+.link {
+  @apply no-underline;
+}
+
+.link:hover {
+  @apply text-[#FFC27A];
+}
