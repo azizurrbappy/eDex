@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         className={`${publicSans.variable} antialiased flex flex-col min-h-screen`}
       >
         <Navbar></Navbar>
-        <section className="flex-1"></section>
+        <section className="flex-1">{children}</section>
         Footer
       </body>
     </html>

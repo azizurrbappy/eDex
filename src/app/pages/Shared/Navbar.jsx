@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-base-100 shadow-sm">
+      <nav className="bg-base-100 shadow-sm sticky top-0">
         <Container className="navbar lg:px-0 px-4">
           <div className="navbar-start space-x-3">
             <div className="dropdown">
@@ -65,7 +65,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="navbar-end space-x-2">
-            <button className="flex items-center justify-center gap-1 border-0 rounded-full font-medium cursor-pointer  hover:text-white hover:bg-gradient-to-b from-[#FFC27A] to-[#FFA337] py-2 px-4 duration-200 font-medium">
+            <button className="flex items-center justify-center gap-1 border-0 rounded-full font-medium cursor-pointer hover:text-white hover:bg-gradient-to-b from-[#FFC27A] to-[#FFA337] py-2 px-4 duration-200 font-medium">
               <RiLock2Line size={16}></RiLock2Line> Login
             </button>
 
