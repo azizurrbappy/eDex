@@ -20,3 +20,9 @@
 .link:hover {
   @apply text-[#FFC27A];
 }
+
+/* Swiper Js */
+.custom-bullet-active {
+  background-color: #ffc27a !important;
+  opacity: 1 !important;
+}

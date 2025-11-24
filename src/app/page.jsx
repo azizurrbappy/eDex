@@ -2,8 +2,6 @@ import React from 'react';
 import Container from './components/Container/Container';
 import Image from 'next/image';
 import {
-  RiAdvertisementLine,
-  RiArrowRightUpLine,
   RiBankLine,
   RiBriefcaseLine,
   RiCamera4Line,
@@ -24,6 +22,7 @@ import {
 import CourseSlider from './components/Slider/CourseSlider/CourseSlider';
 import Link from 'next/link';
 import Category from './components/Category/Category';
+import InstructorSlider from './components/Slider/CourseSlider/InstructorSlider';
 
 const Home = () => {
   return (
@@ -204,6 +203,35 @@ const Home = () => {
               <RiGlassesLine size={28}></RiGlassesLine>
             </Category>
           </section>
+        </Container>
+      </section>
+
+      {/* Our Best Instructor */}
+      <Container className="px-4 lg:px-0 mt-20">
+        <div>
+          <h2 className="text-4xl font-semibold">
+            Our Best <span className="text-[#3461FD]">Instructor</span>
+          </h2>
+          <p className="text-gray-600 mt-2">
+            Various versions have evolved over the years, sometimes by accident.
+          </p>
+        </div>
+
+        <section className="mt-12">
+          <InstructorSlider></InstructorSlider>
+        </section>
+      </Container>
+
+      {/* Banner Section */}
+      <section className="bg-[#F8F4FF] mt-20">
+        <Container>
+          <Image
+            src="/images/package.png"
+            alt=""
+            width={612}
+            height={512}
+          ></Image>
+          <div></div>
         </Container>
       </section>
     </>

@@ -7,8 +7,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-const Slide = () => {
-  const [rating, setRating] = useState(3);
+const CourseSlider = ({ course }) => {
+  const {
+    courseTitle,
+    courseImage,
+    category,
+    rating,
+    totalRating,
+    price,
+    _id,
+  } = course;
 
   const itemStyles = {
     itemShapes: (
@@ -21,21 +29,16 @@ const Slide = () => {
   };
 
   return (
-    <div className="card bg-base-100 w-xs shadow-sm p-4 rounded-3xl my-2">
+    <div className="card bg-base-100 w-xs shadow-sm p-4 rounded-3xl mb-12">
       <figure className="rounded-xl relative">
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-          alt="Shoes"
-        />
+        <img src={courseImage} alt="Shoes" />
         <span className="text-sm font-medium uppercase py-1 px-2 rounded-sm bg-[#ffffffdd] absolute top-2 left-2">
-          HTML
+          {category}
         </span>
       </figure>
 
       <div className="card-body p-0 mt-4">
-        <h2 className="font-medium text-base">
-          Various versions have evolved daf
-        </h2>
+        <h2 className="font-medium text-base">{courseTitle}</h2>
 
         <div className="flex items-center gap-1 text-base text-gray-600 mb-4">
           <Rating
@@ -43,16 +46,16 @@ const Slide = () => {
             style={{
               maxWidth: 103,
             }}
-            value={2}
+            value={rating}
             readOnly
           />
-          <h3>(3)</h3>
+          <h3>({totalRating})</h3>
         </div>
 
         <hr className="text-gray-200 mb-4" />
 
         <div className="flex items-center justify-between">
-          <h3 className="text-xl font-bold">$ 500</h3>
+          <h3 className="text-xl font-bold">$ {price}</h3>
 
           <Link
             href=""
@@ -66,4 +69,4 @@ const Slide = () => {
   );
 };
 
-export default Slide;
+export default CourseSlider;

@@ -4,32 +4,33 @@ import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Navigation, Pagination } from 'swiper/modules';
-import useAxios from '@/hooks/useAxios';
-import CourseSlide from './CourseSlide';
+import 'swiper/css/navigation';
+import { Pagination, Navigation } from 'swiper/modules';
+import InstructorSlide from './InstructorSlide';
 import { RiArrowLeftSLine, RiArrowRightSLine } from '@remixicon/react';
+import useAxios from '@/hooks/useAxios';
 
-const CourseSlider = () => {
+const InstructorSlider = () => {
+  const [instructors, setInstructors] = useState();
   const axios = useAxios();
-  const [courses, setCourses] = useState();
 
   useEffect(() => {
-    const fetchCourses = async () => {
-      const res = await axios.get('/courses');
-      setCourses(res.data);
+    const fetchInstructors = async () => {
+      const res = await axios.get('/instructors');
+      setInstructors(res.data);
     };
-    fetchCourses();
+    fetchInstructors();
   }, []);
 
   return (
     <>
-      {courses ? (
+      {instructors ? (
         <div className="relative px-16">
-          <button className="prev-btn p-2.5 bg-gray-100 hover:bg-gradient-to-b from-[#FFC27A] to-[#FFA337] rounded-full cursor-pointer absolute top-40 left-2 hover:text-white">
+          <button className="prev-btn p-2.5 bg-gray-100 hover:bg-gradient-to-b from-[#FFC27A] to-[#FFA337] rounded-full cursor-pointer absolute top-20 left-2 hover:text-white">
             <RiArrowLeftSLine></RiArrowLeftSLine>
           </button>
 
-          <button className="next-btn p-2.5 bg-gray-100 hover:bg-gradient-to-b from-[#FFC27A] to-[#FFA337] rounded-full cursor-pointer absolute top-40 right-2 hover:text-white">
+          <button className="next-btn p-2.5 bg-gray-100 hover:bg-gradient-to-b from-[#FFC27A] to-[#FFA337] rounded-full cursor-pointer absolute top-20 right-2 hover:text-white">
             <RiArrowRightSLine></RiArrowRightSLine>
           </button>
 
@@ -64,9 +65,9 @@ const CourseSlider = () => {
             modules={[Pagination, Navigation]}
             className="mySwiper"
           >
-            {courses.map(course => (
-              <SwiperSlide key={course._id}>
-                <CourseSlide course={course}></CourseSlide>
+            {instructors.map(instructor => (
+              <SwiperSlide key={instructor._id}>
+                <InstructorSlide instructor={instructor}></InstructorSlide>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -80,4 +81,4 @@ const CourseSlider = () => {
   );
 };
 
-export default CourseSlider;
+export default InstructorSlider;
