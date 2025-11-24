@@ -223,15 +223,35 @@ const Home = () => {
       </Container>
 
       {/* Banner Section */}
-      <section className="bg-[#F8F4FF] mt-20">
-        <Container>
+      <section className="bg-[#F8F4FF] mt-20 py-10">
+        <Container className="flex items-center gap-20 lg:flex-row flex-col lg:px-0 px-4 justify-center">
           <Image
             src="/images/package.png"
-            alt=""
-            width={612}
-            height={512}
+            alt="package"
+            width={512}
+            height={412}
           ></Image>
-          <div></div>
+          <div>
+            <h2 className="text-4xl font-semibold">
+              Join <span className="text-[#3461FD]">World's largest</span>{' '}
+              learning <br /> platform today
+            </h2>
+            <p className="text-lg my-3 text-gray-600">
+              Start learning by registering for free
+            </p>
+            <p className="text-gray-500">
+              Ut pharetra ipsum nec leo blandit, sit amet tincidunt eros
+              pharetra. Nam sed imperdiet <br /> turpis. In hac habitasse platea
+              dictumst. <br /> Praesent nulla massa, hendrerit vestibulum
+              gravida in, feugiat auctor felis.
+            </p>
+            <Link
+              href=""
+              className="btn bg-gradient-to-b from-[#FFC27A] to-[#FFA337] border-0 rounded-full text-white font-medium shadow-none mt-5"
+            >
+              Sign up for Free
+            </Link>
+          </div>
         </Container>
       </section>
     </>
