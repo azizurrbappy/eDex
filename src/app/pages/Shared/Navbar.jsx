@@ -1,10 +1,22 @@
+'use client';
+
 import Container from '@/app/components/Container/Container';
 import NavLink from '@/app/components/NavLink/NavLink';
-import { RiLock2Line, RiMenu2Fill } from '@remixicon/react';
+import { AuthContext } from '@/app/context/AuthContext';
+import { RiLock2Line, RiLogoutBoxRLine, RiMenu2Fill } from '@remixicon/react';
 import Link from 'next/link';
-import React from 'react';
+import { useRouter } from 'next/navigation';
+import React, { useContext } from 'react';
 
 const Navbar = () => {
+  const { user, loading, userLogout } = useContext(AuthContext);
+  const router = useRouter();
+
+  const handleLogout = () => {
+    userLogout();
+    router.push('/');
+  };
+
   const links = [
     {
       pageName: 'Home',
@@ -64,20 +76,60 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
-          <div className="navbar-end space-x-2">
-            <Link
-              href=""
-              className="flex items-center justify-center gap-1 border-0 rounded-full font-medium cursor-pointer hover:text-white hover:bg-gradient-to-b from-[#FFC27A] to-[#FFA337] py-2 px-4 duration-200 font-medium"
-            >
-              <RiLock2Line size={16}></RiLock2Line> Login
-            </Link>
+          <div className="navbar-end">
+            {loading ? (
+              <div className="skeleton rounded-full h-10 w-10"></div>
+            ) : user ? (
+              <div className="dropdown dropdown-end">
+                <div tabIndex={0} role="button">
+                  <img
+                    className="w-10 h-10 border-2 border-[#ffa43a] rounded-full cursor-pointer"
+                    src={user.photoURL}
+                    alt={user.displayName}
+                  />
+                </div>
+                <ul
+                  tabIndex="-1"
+                  className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+                >
+                  <div className="text-center">
+                    <h4 className="font-semibold">{user.displayName}</h4>
+                    <p>{user.email}</p>
+                  </div>
+                  <hr className="my-2 text-gray-300" />
+                  <li>
+                    <Link href="">Add Course</Link>
+                  </li>
+                  <li>
+                    <Link href="">Manage Course</Link>
+                  </li>
+                  <li>
+                    <button
+                      onClick={handleLogout}
+                      className="cursor-pointer text-red-500"
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2">
+                <Link
+                  href="../auth/signin"
+                  className="flex items-center justify-center gap-1 border-0 rounded-full font-medium cursor-pointer hover:text-white hover:bg-gradient-to-b from-[#FFC27A] to-[#FFA337] py-2 px-4 duration-200 font-medium"
+                >
+                  <RiLock2Line size={16}></RiLock2Line> Login
+                </Link>
 
-            <Link
-              href=""
-              className="btn bg-gradient-to-b from-[#FFC27A] to-[#FFA337] border-0 rounded-full text-white font-medium shadow-none"
-            >
-              Sign up for Free
-            </Link>
+                <Link
+                  href="../auth/signup"
+                  className="btn bg-gradient-to-b from-[#FFC27A] to-[#FFA337] border-0 rounded-full text-white font-medium shadow-none"
+                >
+                  Sign up for Free
+                </Link>
+              </div>
+            )}
           </div>
         </Container>
       </nav>

@@ -2,6 +2,8 @@ import { Public_Sans } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/app/pages/Shared/Navbar';
 import Footer from './pages/Shared/Footer';
+import AuthProvider from './context/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
 
 const publicSans = Public_Sans({
   variable: '--font-public-sans',
@@ -19,9 +21,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${publicSans.variable} antialiased flex flex-col min-h-screen`}
       >
-        <Navbar></Navbar>
-        <section className="flex-1">{children}</section>
-        <Footer></Footer>
+        <AuthProvider>
+          <Navbar></Navbar>
+          <section className="flex-1">{children}</section>
+          <Footer></Footer>
+          <ToastContainer />
+        </AuthProvider>
       </body>
     </html>
   );
