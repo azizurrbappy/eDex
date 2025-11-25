@@ -98,7 +98,7 @@ const Navbar = () => {
                   </div>
                   <hr className="my-2 text-gray-300" />
                   <li>
-                    <Link href="">Add Course</Link>
+                    <Link href="/addcourse">Add Course</Link>
                   </li>
                   <li>
                     <Link href="">Manage Course</Link>
