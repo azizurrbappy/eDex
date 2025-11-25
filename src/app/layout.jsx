@@ -1,6 +1,7 @@
 import { Public_Sans } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/app/pages/Shared/Navbar';
+import Footer from './pages/Shared/Footer';
 
 const publicSans = Public_Sans({
   variable: '--font-public-sans',
@@ -20,7 +21,7 @@ export default function RootLayout({ children }) {
       >
         <Navbar></Navbar>
         <section className="flex-1">{children}</section>
-        Footer
+        <Footer></Footer>
       </body>
     </html>
   );

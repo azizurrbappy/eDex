@@ -58,7 +58,7 @@ const CourseSlider = ({ course }) => {
           <h3 className="text-xl font-bold">$ {price}</h3>
 
           <Link
-            href=""
+            href={`/course/${_id}`}
             className="hover:bg-gradient-to-b from-[#FFC27A] to-[#FFA337] rounded-full p-1.5 text-[#FFA337] hover:text-white duration-300"
           >
             <RiArrowRightUpLine></RiArrowRightUpLine>
