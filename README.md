@@ -1,4 +1,4 @@
-# 📘 Project Overview
+## 📘 Project Overview
 
 The Course Management Platform is a modern full-stack web application designed
 to provide a smooth and intuitive experience for browsing, managing, and
