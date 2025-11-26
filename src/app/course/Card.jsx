@@ -7,11 +7,9 @@ const Card = ({ course }) => {
   const {
     courseImage,
     courseTitle,
-    courseLongDescription,
+    courseShortDescription,
     avgRating,
     totalRating,
-    price,
-    Instructor,
     _id,
   } = course;
 
@@ -33,7 +31,7 @@ const Card = ({ course }) => {
       <div className="p-3">
         <h2 className="card-title">{courseTitle}</h2>
         <p className="m-0 text-sm text-gray-600 my-2">
-          {courseLongDescription}
+          {courseShortDescription}
         </p>
         <div className="flex items-center gap-1.5">
           <h4 className="font-semibold">{avgRating}</h4>

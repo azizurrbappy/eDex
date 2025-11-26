@@ -246,7 +246,7 @@ const Home = () => {
               gravida in, feugiat auctor felis.
             </p>
             <Link
-              href=""
+              href="../auth/signup"
               className="btn bg-gradient-to-b from-[#FFC27A] to-[#FFA337] border-0 rounded-full text-white font-medium shadow-none mt-5"
             >
               Sign up for Free

@@ -10,17 +10,11 @@ import { toast } from 'react-toastify';
 const AddCourse = () => {
   const { user } = use(AuthContext);
   const [textLength, setTextLength] = useState('');
+  const [textLength2, setTextLength2] = useState('');
   const axios = useAxios();
 
   const handleAddCourse = e => {
     e.preventDefault();
-
-    // current data
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const day = String(today.getDate()).padStart(2, '0');
-    const currentDate = `${year}-${month}-${day}`;
 
     const name = e.target.name.value;
     const email = e.target.email.value;
@@ -28,8 +22,10 @@ const AddCourse = () => {
     const courseTitle = e.target.courseTitle.value;
     const courseImage = e.target.courseImage.value;
     const category = e.target.category.value;
+    const shortDescription = e.target.shortDescription.value;
     const description = e.target.description.value;
     const coursePrice = Number(e.target.coursePrice.value);
+    const createdAt = new Date().toISOString();
 
     const addCourse = {
       Instructor: name,
@@ -39,7 +35,11 @@ const AddCourse = () => {
       courseImage: courseImage,
       category: category,
       courseLongDescription: description,
+      courseShortDescription: shortDescription,
       price: coursePrice,
+      avgRating: 0,
+      totalRating: 0,
+      createdAt: createdAt,
     };
 
     axios.post('/courses', addCourse).then(res => {
@@ -127,7 +127,24 @@ const AddCourse = () => {
 
               <div className="pt-3.5">
                 <p className="text-sm font-semibold pb-1.5">
-                  Course Description
+                  Course Short Description
+                </p>
+                <textarea
+                  name="shortDescription"
+                  onChange={e => setTextLength2(e.target.value)}
+                  value={textLength2}
+                  maxLength={120}
+                  className="textarea outline-0 w-full focus:border-[#7065f0] duration-200 rounded-lg"
+                  placeholder="Provide a detailed short description of your course..."
+                ></textarea>
+                <div className="text-right text-xs text-gray-500 pt-1">
+                  <p>{textLength2.length}/120</p>
+                </div>
+              </div>
+
+              <div className="pt-3.5">
+                <p className="text-sm font-semibold pb-1.5">
+                  Course Long Description
                 </p>
                 <textarea
                   name="description"
@@ -135,7 +152,7 @@ const AddCourse = () => {
                   value={textLength}
                   maxLength={2000}
                   className="textarea outline-0 w-full focus:border-[#7065f0] duration-200 rounded-lg"
-                  placeholder="Provide a detailed description of your course..."
+                  placeholder="Provide a detailed long description of your course..."
                 ></textarea>
                 <div className="flex items-center justify-between text-xs text-gray-500 pt-1">
                   <p>
@@ -176,7 +193,7 @@ const AddCourse = () => {
                 </p>
                 <input
                   name="coursePrice"
-                  type="number"
+                  type="text"
                   required
                   className="input outline-0 w-full focus:border-[#7065f0] duration-200 rounded-lg"
                   placeholder="example: 1200"

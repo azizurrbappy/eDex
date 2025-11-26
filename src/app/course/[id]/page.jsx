@@ -113,7 +113,7 @@ const CourseDetails = ({ params }) => {
         <section className="flex items-start justify-between gap-10">
           <div>
             <div className="bg-white shadow-sm p-4 rounded-xl">
-              <h3 className="text-xl font-semibold">What You'll Learn</h3>
+              <h3 className="text-xl font-semibold">Description</h3>
               <p className="mt-4">{courseLongDescription}</p>
             </div>
           </div>

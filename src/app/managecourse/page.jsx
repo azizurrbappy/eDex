@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PrivateRoute from '../PrivateRoute';
 import Container from '../components/Container/Container';
 import { useQuery } from '@tanstack/react-query';
@@ -17,7 +17,7 @@ const page = () => {
   const { data: courses, refetch } = useQuery({
     queryKey: ['courses', user?.email],
     queryFn: async () => {
-      const res = await axios.get('/courses');
+      const res = await axios.get(`/managecourse?email=${user.email}`);
       return res.data;
     },
   });
@@ -30,7 +30,6 @@ const page = () => {
       }
     });
   };
-
   return (
     <>
       <PrivateRoute>
