@@ -4,6 +4,7 @@ import Navbar from '@/app/pages/Shared/Navbar';
 import Footer from './pages/Shared/Footer';
 import AuthProvider from './context/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
+import QueryProvider from './context/QueryProvider';
 
 const publicSans = Public_Sans({
   variable: '--font-public-sans',
@@ -21,12 +22,14 @@ export default function RootLayout({ children }) {
       <body
         className={`${publicSans.variable} antialiased flex flex-col min-h-screen`}
       >
-        <AuthProvider>
-          <Navbar></Navbar>
-          <section className="flex-1">{children}</section>
-          <Footer></Footer>
-          <ToastContainer />
-        </AuthProvider>
+        <QueryProvider>
+          <AuthProvider>
+            <Navbar></Navbar>
+            <section className="flex-1">{children}</section>
+            <Footer></Footer>
+            <ToastContainer />
+          </AuthProvider>
+        </QueryProvider>
       </body>
     </html>
   );

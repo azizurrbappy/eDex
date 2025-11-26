@@ -3,7 +3,7 @@
 import Container from '@/app/components/Container/Container';
 import NavLink from '@/app/components/NavLink/NavLink';
 import { AuthContext } from '@/app/context/AuthContext';
-import { RiLock2Line, RiLogoutBoxRLine, RiMenu2Fill } from '@remixicon/react';
+import { RiLock2Line, RiMenu2Fill } from '@remixicon/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useContext } from 'react';
@@ -101,7 +101,7 @@ const Navbar = () => {
                     <Link href="/addcourse">Add Course</Link>
                   </li>
                   <li>
-                    <Link href="">Manage Course</Link>
+                    <Link href="/managecourse">Manage Course</Link>
                   </li>
                   <li>
                     <button
