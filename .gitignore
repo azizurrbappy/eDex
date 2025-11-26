@@ -43,3 +43,6 @@ next-env.d.ts
 # public
 course.json
 .env*.local
+
+# vscode
+.vscode

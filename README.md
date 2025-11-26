@@ -38,3 +38,48 @@ The project includes both public and protected pages:
 - Clear visual hierarchy
 - Resale components\
 - Modern UX with optional micro animations
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+- Next.js 14+ (App Router)
+- NextAuth.js for authentication
+- Tailwind CSS for styling
+- UI fully responsive with hover/focus states
+
+### Backend
+
+- Express.js server
+- Simple REST API for products
+
+## ⚙️ Installation & Setup
+
+## 1️⃣ Clone the project
+
+```bash
+git clone https://github.com/azizurrbappy/eDex.git
+```
+
+## 2️⃣ Install dependencies
+
+### Frontend
+
+```bash
+cd edex
+npm install
+```
+
+## 🤝 Contributing
+
+Contributions are what make the open-source community an amazing place!
+
+### Steps to contribute:
+
+- Fork the Project Create a branch (git checkout -b feature/AmazingFeature)
+- Commit changes (git commit -m 'Add some AmazingFeature')
+- Push the branch (git push origin feature/AmazingFeature) Open a Pull Request
+
+## 📬 Contact
+
+Email: azizurr.bappy@gmail.com
