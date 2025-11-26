@@ -34,6 +34,7 @@ const Signin = () => {
     } catch (error) {
       setLoading(false);
       toast.error(error.message);
+      router.push('/');
     }
   };
 
